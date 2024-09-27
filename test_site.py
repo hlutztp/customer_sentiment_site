@@ -101,5 +101,21 @@ target_scale = 10  # Target scale
 final_score = weighted_average(scores, weights, scales, target_scale)
 
 if st.button("Submit"):
-    result = combined_app_score, combined_fb_score, jira_value, zd_csat_value, final_score
-    st.write(result)
+    result = ( round(combined_app_score, 2),
+               round(combined_fb_score, 2),
+               round(jira_value, 2),
+               round(zd_csat_value, 2),
+               round(final_score, 2)
+               )
+ 
+ # Create a formatted output message
+    output_message = f"""
+    Combined App Score: {result[0]}\n
+    Combined FB Score: {result[1]}\n
+    Jira Value: {result[2]}\n
+    ZD CSAT Value: {result[3]}\n
+    Final Score: {result[4]}\n
+    """
+    
+    # Display the output message
+    st.write(output_message)
