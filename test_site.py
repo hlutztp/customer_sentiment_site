@@ -9,8 +9,8 @@ import csv
 st.title("Customer Sentiment Data Entry")
 st.subheader("Enter weekly ZD CSAT, App Reviews, and Jira Information in the appropiate fields below")
 #input from users is set here
-app_reviews = st.text_area("Enter App Reviews here")
-facebook_comments = st.text_area("Enter Facebook posts here")
+app_reviews = st.text_area("Enter App Reviews here, leave a line break between reviews")
+facebook_comments = st.text_area("Enter Facebook posts here, leave a line break between posts")
 zd_csat_value = st.number_input("Enter a ZD CSAT number:", min_value=0.0, step=0.01, format="%.2f")
 jira_value = st.number_input("Enter Jira score here:", min_value=0.0, step=0.01, format ="%.2f")
 
