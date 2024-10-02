@@ -91,18 +91,21 @@ def weighted_average(scores, weights, scales, target_scale):
     weighted_avg = sum(weight * score for weight, score in zip(weights, scaled_scores))
     return weighted_avg
 
+final_app_score = (combined_app_score + 2) * 2.5
+final_fb_score = (combined_fb_score + 2) * 2.5
+
 # Use the combined sentiment scores to calculate the final weighted score
-scores = [combined_app_score, combined_fb_score, zd_csat_value, jira_value]  # Combined App reviews, Combined FB comments, ZD CSAT
+scores = [final_app_score, final_fb_score, zd_csat_value, jira_value]  # Combined App reviews, Combined FB comments, ZD CSAT
 weights = [0.20, 0.05, 0.55, 0.20]  # Weight distribution
-scales = [(-2, 2), (-2, 2), (0, 10), (0, 10)]  # Scales for the three scores
+scales = [(0, 10), (0, 10), (8, 10), (0, 10)]  # Scales for the three scores
 target_scale = 10  # Target scale
 
 # Calculate final score
 final_score = weighted_average(scores, weights, scales, target_scale)
 
 if st.button("Submit"):
-    result = ( round(combined_app_score, 2),
-               round(combined_fb_score, 2),
+    result = ( round(final_app_score, 2),
+               round(final_fb_score, 2),
                round(jira_value, 2),
                round(zd_csat_value, 2),
                round(final_score, 2)
