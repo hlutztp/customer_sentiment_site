@@ -116,7 +116,7 @@ final_fb_score = (combined_fb_score + 2) * 2.5
 scores = [final_app_score, final_fb_score, zd_csat_value, jira_value]  # Combined App reviews, Combined FB comments, ZD CSAT
 
 weights = [0.20, 0.05, 0.55, 0.20]  # Weight distribution
-scales = [(0, 10), (0, 10), (8, 10), (0, 10)]  # Scales for the three scores
+scales = [(3, 7), (3, 7), (8, 10), (0, 10)]  # Scales for the three scores
 target_scale = 10  # Target scale
 
 # Calculate final score
