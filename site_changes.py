@@ -141,16 +141,15 @@ if st.button("Submit"):
     
     # Display the output message
     st.write(output_message)
-    
-#subheader for ZD most used words
-st.subheader("Calculate ZD ")
+
+#Begin ZD most used words script
     
 nltk.download('stopwords')
 
-# Load English stop words from NLTK
+# Load stop words from NLTK
 nltk_stop_words = set(stopwords.words('english'))
 
-# Custom list of syncategorematic words (you can modify this list)
+# Custom list of syncategorematic words
 custom_syncategorematic_words = custom_syncategorematic_words = { "and", "or", "but", "if", "while", "because", "although", "the", "a", "an", "in", "on", "with",
     "by", "to", "of", "for", "from", "at", "about", "between", "before", "after", "since", "until",
     "does", "not", "really", "due", "it", "appears", "yet", "possible", "can", "transfer", "from",
