@@ -143,6 +143,7 @@ if st.button("Submit"):
     # Display the output message
     st.write(output_message)
     
+#subheader for ZD most used words
 st.subheader("Calculate ZD ")
     
 nltk.download('stopwords')
@@ -190,15 +191,13 @@ def count_words_ignore_stopwords(text_series, stop_words):
     
     return Counter(words)
 
-# Build the file path dynamically
-file_path = os.path.expanduser("~/Downloads/zd_tickets.csv")  # "~" is a shortcut to the home directory
-df = pd.read_csv(file_path)
-
+# Build the file path through GitHub
+df = pd.read_csv('zd_tickets.csv')
 # Count word occurrences in the 'Description' column while ignoring stop words and unwanted characters
 occurrences = count_words_ignore_stopwords(df['Description'], STOP_WORDS)
 
-# Get the top 10 most used words
-top_10_most_used_words = occurrences.most_common(50)
+
+most_used_words = occurrences.most_common(50)
 
 # Print the top 10 most used words with their counts
 #for word, count in top_10_most_used_words:
@@ -206,7 +205,7 @@ top_10_most_used_words = occurrences.most_common(50)
 if st.button("See ZD Words"):
     result = (occurrences.most_common(50))
     output_message = f"""
-    Top used words: {top_10_most_used_words}
+    Top used words: {most_used_words}
     """
     st.write(output_message)
 
