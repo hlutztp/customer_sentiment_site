@@ -1,4 +1,4 @@
 pandas
 textblob
 nltk
-collections
+
