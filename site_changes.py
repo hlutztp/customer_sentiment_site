@@ -4,9 +4,8 @@ import pandas as pd
 from collections import Counter
 import re
 import subprocess
-from nltk.corpus import stopwords
 import nltk
-import os
+from nltk.corpus import stopwords
 
 #title/subheader set here
 st.title("Customer Sentiment Data Entry")
